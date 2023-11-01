@@ -210,7 +210,6 @@ const ShopList = () => {
     const getShops = async (search_obj) => {
         setLoading(true);
         let obj = { ...search_obj };
-
         setTheme(search_obj?.theme ?? 0);
         setCity(search_obj?.city ?? 0);
         setSubCity(search_obj?.sub_city ?? 0);
