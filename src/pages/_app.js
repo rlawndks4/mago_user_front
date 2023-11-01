@@ -56,7 +56,7 @@ const App = (props) => {
         <meta name="image" property="og:image" content={head_data?.og_image || headData?.og_image || "/assets/images/test/ogimage.png"} />
         <meta name="google-site-verification" content="FTUivJR1xukVHHU2LMvDbn22cgE2ftcR1-DxRPhjJ1A" />
         <meta name="naver-site-verification" content="3f056655e3a151c86be45c4a31dce9b02368ec8d" />
-        <link rel='shortcut icon' href="/assets/images/test/logo.png" />
+        <link rel='shortcut icon' href="/favicon.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/test/logo.png" />
         <meta name="google-site-verification" content="9n-0C-1LYCb57If3DzJzfBj4OYpsUooRq5IBdJ9Abwg" />
       </Head>
