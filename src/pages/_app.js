@@ -31,11 +31,16 @@ const App = (props) => {
       setHeadData(head_obj)
     } else {
       let shop_id = -1;
+      let post_id = -1;
+      let post_table = -1;
       let route_list = router.asPath.split('/');
       if (route_list[1] == 'shop') {
         shop_id = route_list[4];
+      } else if (route_list[1] == 'post') {
+        post_id = route_list[3];
+        post_table = route_list[2];
       }
-      const { data: response } = await axios.get(`/api/setting?shop_id=${shop_id}`);
+      const { data: response } = await axios.get(`/api/setting?shop_id=${shop_id}&post_table=${post_table}&post_id=${post_id}`);
       setHeadData(response?.data);
     }
   }
@@ -76,11 +81,17 @@ App.getInitialProps = async (context) => {
     const host = ctx?.req?.headers?.host ? ctx?.req?.headers.host.split(':')[0] : '';
     let uri = ctx?.req?.headers['x-invoke-path'] ?? "";
     let shop_id = -1;
-    if (uri.split('/')[1] == 'shop') {
-      shop_id = uri.split('/')[4]
+    let post_id = -1;
+    let post_table = "";
+    let route_list = uri.split('/');
+    if (route_list[1] == 'shop') {
+      shop_id = route_list[4]
+    } else if (route_list[1] == 'post') {
+      post_id = route_list[3];
+      post_table = route_list[2];
     }
     if (host) {
-      const url = `${process.env.BACK_URL}/api/setting?shop_id=${shop_id}`;
+      const url = `${process.env.BACK_URL}/api/setting?shop_id=${shop_id}&post_table=${post_table}&post_id=${post_id}`;
       const res = await fetch(url);
       head_data = await res.json();
       let dns_data = head_data?.data
