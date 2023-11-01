@@ -14,6 +14,7 @@ import AddButton from "src/components/elements/button/AddButton";
 import PageContainer from "src/components/elements/pagination/PageContainer";
 import PageButton from "src/components/elements/pagination/PageButton";
 import { getLocalStorage } from "src/functions/LocalStorage";
+import { AiTwotonePhone, AiTwotoneMessage } from 'react-icons/ai'
 const ReactQuill = dynamic(() => import('react-quill'), {
     ssr: false,
     loading: () => <p>Loading ...</p>,
@@ -23,7 +24,27 @@ import UserLayout from "src/layouts/UserLayout";
 import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
 import NaverMap from "src/components/NaverMap";
+const CallButton = styled.a`
 
+background:${props => props.theme.color.background1};
+padding:7px 8px 5px 8px;
+color:#000;
+border-radius:50%;
+font-size:16px;
+cursor:pointer;
+animation: fadein 0.5s;
+z-index:3;
+color:#fff;
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+`
 const Type = styled.div`
 width:50%;
 text-align:center;
@@ -384,6 +405,16 @@ const Shop = () => {
                 }
                 {/* <Logo src={logo} style={{left:`${percent-1}.7%`}}/> */}
             </Wrappers>
+            <div style={{ position: 'fixed', right: '1rem', bottom: '12rem', display: 'flex', alignItems: 'center' }}>
+                <CallButton href={`tel:${data?.shop?.phone}`}  >
+                    <AiTwotonePhone />
+                </CallButton>
+            </div>
+            <div style={{ position: 'fixed', right: '1rem', bottom: '9rem', display: 'flex', alignItems: 'center' }}>
+                <CallButton href={`sms:${data?.shop?.phone}${navigator.userAgent.includes('Android') ? '?' : '&'}body=마고에서 보고 연락 드립니다.`} >
+                    <AiTwotoneMessage />
+                </CallButton>
+            </div>
         </>
     )
 }
