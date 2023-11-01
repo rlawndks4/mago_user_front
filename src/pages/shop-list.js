@@ -66,9 +66,9 @@ padding:1rem;
 display:flex;
 flex-direction:column;
 `
-const convertText = (text) =>{
-    if(!text){
-        return""
+const convertText = (text) => {
+    if (!text) {
+        return ""
     }
     return text.repla
 }
@@ -95,7 +95,7 @@ export const Merchandise = (props) => {
                     <Font3 style={{ margin: '0 auto auto 0' }}>{item?.name}</Font3>
                     <Font5 style={{ display: 'flex', alignItems: 'center', margin: 'auto 0' }}>
                         <Icon icon='mdi:theme-outline' />
-                        <h3 style={{ margin:'0 0 0 0.5rem' }}>{item?.theme_name}</h3>
+                        <h3 style={{ margin: '0 0 0 0.5rem' }}>{item?.theme_name}</h3>
                     </Font5>
                     <Font5 style={{ display: 'flex', alignItems: 'center', margin: 'auto 0' }}>
                         <Icon icon='mdi:home-city-outline' />
@@ -138,19 +138,6 @@ export const Merchandise = (props) => {
     )
 }
 
-const getQueryByObj = (obj) => {
-    let keys = Object.keys(obj);
-    let query = ""
-    for (var i = 0; i < keys.length; i++) {
-        if (i == 0) {
-            query += '?'
-        } else {
-            query += '&'
-        }
-        query += `${keys[i]}=${obj[keys[i]]}`
-    }
-    return query;
-}
 const ShopList = () => {
 
     const router = useRouter();
@@ -163,14 +150,14 @@ const ShopList = () => {
     const [city, setCity] = useState(0);
     const [subCityList, setSubCityList] = useState([]);
     const [subCity, setSubCity] = useState(0);
+    const [searchObj, setSearchObj] = useState({});
     useEffect(() => {
         setLoading(true);
         getThemeList();
         getCityList();
+        getShops(router.query);
     }, []);
-    useEffect(() => {
-        getShops();
-    }, [router])
+    
     const getThemeList = async () => {
         const { data: response } = await axios.get(`/api/items?table=shop_theme&order=sort`);
         setThemeList(response?.data);
@@ -194,46 +181,43 @@ const ShopList = () => {
             obj['city'] = city;
             getSubCityList(city)
         }
-        let query = getQueryByObj(obj);
-        router.push(`/shop-list${query}`)
-
     }, [city])
-    useEffect(() => {
-        let obj = router.query
-        if (theme == 0 || !theme) {
-            delete obj['theme'];
-        } else {
-            obj['theme'] = theme;
-        }
-        let query = getQueryByObj(obj);
-        router.push(`/shop-list${query}`)
+    // useEffect(() => {
+    //     let obj = router.query
+    //     if (theme == 0 || !theme) {
+    //         delete obj['theme'];
+    //     } else {
+    //         obj['theme'] = theme;
+    //     }
+    //     console.log(obj)
+    //     router.push(`/shop-list`,{
+    //         query: obj
+    //     })
 
-    }, [theme])
-    useEffect(() => {
-        let obj = router.query;
-        if (subCity == 0 || !subCity) {
-            delete obj['sub_city'];
-        } else {
-            obj['sub_city'] = subCity;
-        }
-        let query = getQueryByObj(obj);
-        router.push(`/shop-list${query}`)
-    }, [subCity])
-    const getShops = async () => {
+    // }, [theme])
+    // useEffect(() => {
+    //     let obj = router.query;
+    //     if (subCity == 0 || !subCity) {
+    //         delete obj['sub_city'];
+    //     } else {
+    //         obj['sub_city'] = subCity;
+    //     }
+    //     console.log(obj)
+    //     router.push(`/shop-list`, {
+    //         query: obj
+    //     })
+    // }, [subCity])
+    const getShops = async (search_obj) => {
         setLoading(true);
-        let obj = {}
-        let add_obj = {};
-        if(Object.keys(router.query).length > 0){
-            add_obj = router.query
-        }
-        
-        obj = Object.assign(obj, add_obj);
-        if (obj?.city > 0) {
-            setCity(obj?.city);
-        }
-        if (obj?.theme > 0) {
-            setTheme(obj?.theme);
-        }
+        let obj = { ...search_obj };
+
+        setTheme(search_obj?.theme ?? 0);
+        setCity(search_obj?.city ?? 0);
+        setSubCity(search_obj?.sub_city ?? 0);
+        setSearchObj(obj);
+        router.push('/shop-list',{
+            query:obj
+        })
         const { data: response } = await axios.post('/api/shops', obj)
         let shops = response?.data;
         if (obj?.is_around) {
@@ -266,7 +250,12 @@ const ShopList = () => {
                                 <Select
                                     label='테마선택'
                                     value={theme}
-                                    onChange={e => setTheme(e.target.value)}
+                                    onChange={e => {
+                                        getShops({
+                                            ...searchObj,
+                                            theme: e.target.value
+                                        })
+                                    }}
                                 >
                                     <MenuItem value={0}>전체</MenuItem>
                                     {themeList.map((item, idx) => {
@@ -281,7 +270,10 @@ const ShopList = () => {
                                         label='도시선택'
                                         value={city}
                                         onChange={e => {
-                                            setCity(e.target.value)
+                                            getShops({
+                                                ...searchObj,
+                                                city: e.target.value
+                                            })
                                         }}
                                     >
                                         <MenuItem value={0}>전체</MenuItem>
@@ -295,7 +287,12 @@ const ShopList = () => {
                                     <Select
                                         label='구선택'
                                         value={subCity}
-                                        onChange={e => setSubCity(e.target.value)}
+                                        onChange={e => {
+                                            getShops({
+                                                ...searchObj,
+                                                sub_city: e.target.value
+                                            })
+                                        }}
                                     >
                                         <MenuItem value={0}>전체</MenuItem>
                                         {subCityList.map((item, idx) => {

@@ -422,7 +422,13 @@ const Headers = () => {
             {zBottomMenu.map((item, idx) => (
               <>
                 <HeaderMenu key={idx} className={item?.className} style={{ color: `${item.allowList.includes(router.pathname) ? theme.color.background1 : ''}` }}>
-                  <div onClick={() => { router.push(item.link) }}>{item.name}</div>
+                  <div onClick={() => { 
+                    if(item?.is_location_href){
+                      window.location.href = item.link;
+                    }else{
+                      router.push(item.link)
+                    }
+                     }}>{item.name}</div>
                   {item?.className == 'service-dropdown-btn' ?
                     <>
                       <div className="service-dropdown-content">
@@ -445,7 +451,7 @@ const Headers = () => {
                 {themeList && themeList.map((item, idx) => (
                   <>
                     <TextButton style={{ marginLeft: `${idx != 0 ? '8px' : '0'}`, height: '36px' }} onClick={() => {
-                      router.push(`/shop-list?theme=${item?.pk}`)
+                       window.location.href = `/shop-list?theme=${item?.pk}`;
                     }}>{item?.name}</TextButton>
                   </>
                 ))}
