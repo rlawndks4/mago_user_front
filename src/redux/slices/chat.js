@@ -112,7 +112,7 @@ export default slice.reducer;
 export const { addRecipients, sendMessage, resetActiveConversation } = slice.actions;
 
 // ----------------------------------------------------------------------
-
+  
 export function getContacts() {
   return async (dispatch) => {
     dispatch(slice.actions.startLoading());
