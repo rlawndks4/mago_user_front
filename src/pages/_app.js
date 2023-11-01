@@ -32,10 +32,10 @@ const App = (props) => {
     } else {
       let shop_id = -1;
       let route_list = router.asPath.split('/');
-      if(route_list[1] == 'shop'){
+      if (route_list[1] == 'shop') {
         shop_id = route_list[4];
       }
-      const {data:response} = await axios.get(`/api/setting?shop_id=${shop_id}`);
+      const { data: response } = await axios.get(`/api/setting?shop_id=${shop_id}`);
       setHeadData(response?.data);
     }
   }
@@ -47,6 +47,13 @@ const App = (props) => {
         <meta name="title" property="og:title" content={head_data?.meta_title || headData?.meta_title} />
         <meta name="keywords" content={head_data?.meta_keywords || headData?.meta_keywords} />
         <meta name="description" property="og:description" content={head_data?.meta_description || headData?.meta_description} />
+        <meta name="google" content="notranslate" />
+        <meta name="image" property="og:image" content="/assets/images/test/ogimage.png" />
+        <meta name="google-site-verification" content="FTUivJR1xukVHHU2LMvDbn22cgE2ftcR1-DxRPhjJ1A" />
+        <meta name="naver-site-verification" content="3f056655e3a151c86be45c4a31dce9b02368ec8d" />
+        <link rel='shortcut icon' href="/assets/images/test/logo.png"  />
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/test/logo.png"  />
+        <meta name="google-site-verification" content="9n-0C-1LYCb57If3DzJzfBj4OYpsUooRq5IBdJ9Abwg" />
       </Head>
       <Script
         strategy='beforeInteractive'
