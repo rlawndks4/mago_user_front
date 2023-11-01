@@ -11,11 +11,9 @@ const UserLayout = (props) => {
 
     const [showPage, setShowPage] = useState(false);
 
-    useEffect(()=>{
-        setTimeout(()=>{
-            setShowPage(true);
-        },1000)
-    },[])
+    useEffect(() => {
+        setShowPage(true);
+    }, [])
     return (
         <>
             {showPage &&
