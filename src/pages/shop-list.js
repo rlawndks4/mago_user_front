@@ -228,7 +228,6 @@ const ShopList = () => {
         }
         
         obj = Object.assign(obj, add_obj);
-        console.log(obj)
         if (obj?.city > 0) {
             setCity(obj?.city);
         }
