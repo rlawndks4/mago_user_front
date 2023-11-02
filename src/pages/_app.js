@@ -60,11 +60,19 @@ const App = (props) => {
         <link rel='shortcut icon' href="/favicon.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/test/logo.png" />
         <meta name="google-site-verification" content="9n-0C-1LYCb57If3DzJzfBj4OYpsUooRq5IBdJ9Abwg" />
+        <Script type="application/ld+json">
+          {{
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "마사지고수",
+            "url": "https://mago1004.com/"
+          }}
+        </Script>
+        <Script
+          strategy='beforeInteractive'
+          src={`https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=3fbdbua1qd`}
+        ></Script>
       </Head>
-      <Script
-        strategy='beforeInteractive'
-        src={`https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=3fbdbua1qd`}
-      ></Script>
       <ReduxProvider store={store}>
         <ThemeProvider theme={theme}>
           {getLayout(<Component {...pageProps} />)}
