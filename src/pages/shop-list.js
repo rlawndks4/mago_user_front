@@ -81,15 +81,17 @@ export const Merchandise = (props) => {
     }, [])
     return (
         <>
-            <motion.div
+            <motion.a
+                href={`/shop/${item?.city_1 ? item?.city_1 : "_"}/${item?.city_2 ? item?.city_2 : "_"}/${item?.pk}`}
                 whileHover={{ scale: 1.01, boxShadow: `4px 12px 30px 6px rgba(0, 0, 0, 0.19)`, transform: `translateY(-0.5rem)` }}
                 onHoverStart={e => { }}
                 onHoverEnd={e => { }}
                 style={{
-                    background: '#fff'
+                    background: '#fff',
+                    textDecoration: 'none',
+                    color: '#000'
                 }}
                 className='merchandise-content'
-                onClick={() => { router.push(`/shop/${item?.city_1 ? item?.city_1 : "_"}/${item?.city_2 ? item?.city_2 : "_"}/${item?.pk}`) }}
             >
                 <MerchandiseExplain>
                     <Font3 style={{ margin: '0 auto auto 0' }}>{item?.name}</Font3>
@@ -133,7 +135,7 @@ export const Merchandise = (props) => {
                     </Font4>
                 </MerchandiseExplain>
                 <MerchandiseImg src={backUrl + item?.img_src} alt={item?.img_src_alt} />
-            </motion.div>
+            </motion.a>
         </>
     )
 }
@@ -157,7 +159,7 @@ const ShopList = () => {
         getCityList();
         getShops(router.query);
     }, []);
-    
+
     const getThemeList = async () => {
         const { data: response } = await axios.get(`/api/items?table=shop_theme&order=sort`);
         setThemeList(response?.data);
@@ -214,8 +216,8 @@ const ShopList = () => {
         setCity(search_obj?.city ?? 0);
         setSubCity(search_obj?.sub_city ?? 0);
         setSearchObj(obj);
-        router.push('/shop-list',{
-            query:obj
+        router.push('/shop-list', {
+            query: obj
         })
         const { data: response } = await axios.post('/api/shops', obj)
         let shops = response?.data;
