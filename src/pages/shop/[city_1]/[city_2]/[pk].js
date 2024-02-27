@@ -387,14 +387,9 @@ const Shop = () => {
 
 
                                     <AddButton style={{ width: '92px' }} onClick={() => {
-                                        router.push(`/add-community/shop_review`, {
-                                            query: {
-                                                shop_pk: data?.shop?.pk,
-                                                shop_name: data?.shop?.name
-                                            }
-                                        })
+                                        console.log(data?.shop)
+                                        router.push(`/add-community/shop_review?shop_pk=${data?.shop?.pk}&shop_name=${data?.shop?.name}`)
                                     }}>+ 작성하기</AddButton>
-
                                 </MBottomContent>
 
                             </>

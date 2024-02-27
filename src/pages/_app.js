@@ -23,7 +23,7 @@ const App = (props) => {
   const router = useRouter();
   useEffect(() => {
     getHeadData(head_data);
-  }, [router])
+  }, [router.asPath])
 
   const getHeadData = async (head_data_ = {}) => {
     let head_obj = head_data_;
