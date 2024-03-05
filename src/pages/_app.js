@@ -63,10 +63,10 @@ const App = (props) => {
         <meta property="og:site_name" content={"마사지고수"} />
         <meta name="image" property="og:image" content={head_data?.og_image || headData?.og_image || "/assets/images/test/ogimage.png"} />
         <meta name="google-site-verification" content="FTUivJR1xukVHHU2LMvDbn22cgE2ftcR1-DxRPhjJ1A" />
-        <meta name="naver-site-verification" content="3f056655e3a151c86be45c4a31dce9b02368ec8d" />
         <link rel='shortcut icon' href="/favicon.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/test/logo.png" />
         <meta name="google-site-verification" content="9n-0C-1LYCb57If3DzJzfBj4OYpsUooRq5IBdJ9Abwg" />
+        <meta name="naver-site-verification" content="f976059084ea5ad65b8cb7ab25dccdca7f19e1f2" />
         <Script type="application/ld+json">
           {{
             "@context": "https://schema.org",
