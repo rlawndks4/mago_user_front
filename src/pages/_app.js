@@ -15,6 +15,7 @@ import { Provider as ReduxProvider } from 'react-redux';
 import { Toaster } from 'react-hot-toast';
 import { useRouter } from 'next/router';
 import axios from 'axios';
+import { queryToObj } from 'src/functions/utils';
 
 const App = (props) => {
   const { Component, pageProps, head_data = {} } = props;
@@ -27,7 +28,7 @@ const App = (props) => {
 
   const getHeadData = async (head_data_ = {}) => {
     let head_obj = head_data_;
-    if (Object.keys(head_obj).length > 0) {
+    if (head_obj?.is_first) {
       setHeadData(head_obj)
     } else {
       let shop_id = -1;
@@ -36,12 +37,12 @@ const App = (props) => {
       let city_id = -1;
       let route_list = router.asPath.split('/');
       if (route_list[1] == 'shop') {
-        shop_id = route_list[2];
+        shop_id = route_list[4];
       } else if (route_list[1] == 'post') {
         post_id = route_list[3];
         post_table = route_list[2];
       } else if (route_list[1] == 'shop-list') {
-        let obj = router.query;
+        let obj = queryToObj(route_list[2]);
         if (obj?.city) {
           city_id = obj?.city;
         }
@@ -103,7 +104,7 @@ App.getInitialProps = async (context) => {
     let city_id = -1;
     let route_list = uri.split('/');
     if (route_list[1] == 'shop') {
-      shop_id = route_list[2]
+      shop_id = route_list[4]
     } else if (route_list[1] == 'post') {
       post_id = route_list[3];
       post_table = route_list[2];
@@ -121,7 +122,7 @@ App.getInitialProps = async (context) => {
       let dns_data = head_data?.data
       dns_data['og_image'] = dns_data?.img_src ? (process.env.BACK_URL + dns_data?.img_src) : ""
       return {
-        head_data: dns_data,
+        head_data: { ...dns_data, is_first: true, },
       }
     } else {
       return {
