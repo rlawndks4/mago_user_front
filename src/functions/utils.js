@@ -339,4 +339,3 @@ export const queryToObj = (query_ = "?") => {
     }
     return obj;
 }
-console.log(queryToObj('?city=2'))

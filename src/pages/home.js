@@ -4,10 +4,10 @@ import { useEffect, useState } from 'react';
 import Slider from 'react-slick'
 import axios from 'axios';
 import { backUrl } from 'src/data/Data';
-import {  Wrappers ,  RowContent } from 'src/components/elements/UserContentTemplete';
+import { Wrappers, RowContent } from 'src/components/elements/UserContentTemplete';
 import Loading from 'src/components/Loading';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-const playStoreSrc =  'assets/images/test/google-play.jpg'
+const playStoreSrc = 'assets/images/test/google-play.jpg'
 import { Merchandise } from './shop-list';
 import { MdNavigateBefore, MdNavigateNext } from 'react-icons/md';
 const homeTaiImg = '/assets/images/banner/hometai.jpg'
@@ -199,6 +199,16 @@ const Home = () => {
                 </Mobile90PercentContainer>
             </WrappersStyle>
             <Wrappers className='wrappers' style={{ marginTop: '0.5rem' }}>
+                <MerchandiseContainer>
+                    {shopList && shopList.fillter(el => el?.is_premium == 1).map((item, idx) => (
+                        <>
+                            <Merchandise
+                                router={router}
+                                item={item}
+                            />
+                        </>
+                    ))}
+                </MerchandiseContainer>
                 {loading ?
                     <>
                     </>
@@ -236,7 +246,7 @@ const Home = () => {
 
                     </>}
                 <MerchandiseContainer>
-                    {shopList && shopList.map((item, idx) => (
+                    {shopList && shopList.fillter(el => el?.is_premium == 0).map((item, idx) => (
                         <>
                             <Merchandise
                                 router={router}
