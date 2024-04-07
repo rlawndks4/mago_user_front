@@ -199,6 +199,7 @@ const Home = () => {
                 </Mobile90PercentContainer>
             </WrappersStyle>
             <Wrappers className='wrappers' style={{ marginTop: '0.5rem' }}>
+                <img src={locationGoToImg} style={{ width: '90%', margin: '0 auto', maxWidth: '700px' }} />
                 <MerchandiseContainer>
                     {shopList && shopList.fillter(el => el?.is_premium == 1).map((item, idx) => (
                         <>
