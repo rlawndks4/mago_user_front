@@ -201,7 +201,7 @@ const Home = () => {
             <Wrappers className='wrappers' style={{ marginTop: '0.5rem' }}>
                 <img src={locationGoToImg} style={{ width: '90%', margin: '0 auto', maxWidth: '700px' }} />
                 <MerchandiseContainer>
-                    {shopList && shopList.fillter(el => el?.is_premium == 1).map((item, idx) => (
+                    {shopList && shopList.filter(el => el?.is_premium == 1).map((item, idx) => (
                         <>
                             <Merchandise
                                 router={router}
@@ -247,7 +247,7 @@ const Home = () => {
 
                     </>}
                 <MerchandiseContainer>
-                    {shopList && shopList.fillter(el => el?.is_premium == 0).map((item, idx) => (
+                    {shopList && shopList.filter(el => el?.is_premium == 0).map((item, idx) => (
                         <>
                             <Merchandise
                                 router={router}
