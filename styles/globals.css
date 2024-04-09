@@ -409,8 +409,8 @@ div.note>p>img {
   }
 
   .merchandise-content-premium {
-    width: 100%;
-    height: 100.25vw;
+    width: 47.5%;
+    height: 50.25vw;
   }
 }
 
@@ -427,7 +427,11 @@ div.note>p>img {
     height: 30vw;
     flex-direction: row-reverse;
   }
-
+  .merchandise-content-premium {
+    width: 100%;
+    height: 45vw;
+    flex-direction: row-reverse;
+  }
 }
 
 @media screen and (max-width:600px) {

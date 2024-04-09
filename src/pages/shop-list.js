@@ -38,10 +38,10 @@ margin:0 auto;
 border-bottom-right-radius:10px;
 border-bottom-left-radius:10px;
 @media (max-width: 650px) {
-    ${props => props.is_premium ? '' : 'width:30vw;'}
-    ${props => props.is_premium ? '' : 'height:18vw;'}
-    ${props => props.is_premium ? '' : 'border-radius:10px;'}
-    ${props => props.is_premium ? '' : ' margin:auto auto auto 1rem;'}
+    ${props => props.is_premium ? 'width:50vw;' : 'width:30vw;'}
+    ${props => props.is_premium ? 'height:30vw;' : 'height:18vw;'}
+    border-radius:10px;
+    margin:auto auto auto 1rem;
 }
 `
 const MerchandiseExplain = styled.div`
@@ -54,10 +54,10 @@ flex-direction:column;
   font-size:${theme.size.font4};
 }
 @media (max-width: 650px) {
-    ${props => props.is_premium ? '' : 'width:60vw;'}
-    ${props => props.is_premium ? '' : 'height: 80%;'}
-    ${props => props.is_premium ? '' : 'margin:auto auto auto 0.5rem;'}
-    ${props => props.is_premium ? '' : 'padding:2vw;'}
+    ${props => props.is_premium ? 'width:50vw;' : 'width:60vw;'}
+    height:80%;
+    margin:auto auto auto 0.5rem;
+    padding:2vw;
 }
 `
 const OptionContainer = styled.div`
@@ -120,7 +120,7 @@ export const Merchandise = (props) => {
                         <>
                         </>}
                     <Font4 style={{ height: '10%', display: 'flex', alignItems: 'center', margin: 'auto 0 0.5rem auto', width: '100%' }}>
-                        <div style={{ display: 'flex', alignItems: 'center', marginRight: 'auto', marginTop: 'auto' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', marginRight: 'auto', marginTop: 'auto', flexWrap: 'wrap' }}>
                             {item?.option_list && item?.option_list.map((itm, idx) => (
                                 <>
                                     <Font6 style={{ background: theme.color.background1, color: '#fff', borderRadius: '4px', padding: '2px', marginRight: '2px' }}>{itm?.name}</Font6>
