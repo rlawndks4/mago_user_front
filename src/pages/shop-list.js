@@ -38,8 +38,8 @@ margin:0 auto;
 border-bottom-right-radius:10px;
 border-bottom-left-radius:10px;
 @media (max-width: 650px) {
-    ${props => props.is_premium ? 'width:50vw;' : 'width:30vw;'}
-    ${props => props.is_premium ? 'height:30vw;' : 'height:18vw;'}
+    width:30vw;
+    height:18vw;
     border-radius:10px;
     margin:auto auto auto 1rem;
 }
@@ -54,8 +54,8 @@ flex-direction:column;
   font-size:${theme.size.font4};
 }
 @media (max-width: 650px) {
-    ${props => props.is_premium ? 'width:50vw;' : 'width:60vw;'}
-    height:80%;
+    width:60vw;
+    height: 80%;
     margin:auto auto auto 0.5rem;
     padding:2vw;
 }
@@ -74,7 +74,7 @@ const convertText = (text) => {
 }
 export const Merchandise = (props) => {
 
-    const { item, router, is_premium } = props;
+    const { item, router } = props;
     const [shop, setShop] = useState({});
     useEffect(() => {
         setShop(item)
@@ -91,9 +91,9 @@ export const Merchandise = (props) => {
                     textDecoration: 'none',
                     color: '#000'
                 }}
-                className={`merchandise-content${is_premium ? '-premium' : ''}`}
+                className='merchandise-content'
             >
-                <MerchandiseExplain is_premium={is_premium} >
+                <MerchandiseExplain>
                     <Font3 style={{ margin: '0 auto auto 0' }}>{item?.name}</Font3>
                     <Font5 style={{ display: 'flex', alignItems: 'center', margin: 'auto 0' }}>
                         <Icon icon='mdi:theme-outline' />
@@ -120,7 +120,7 @@ export const Merchandise = (props) => {
                         <>
                         </>}
                     <Font4 style={{ height: '10%', display: 'flex', alignItems: 'center', margin: 'auto 0 0.5rem auto', width: '100%' }}>
-                        <div style={{ display: 'flex', alignItems: 'center', marginRight: 'auto', marginTop: 'auto', flexWrap: 'wrap' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', marginRight: 'auto', marginTop: 'auto' }}>
                             {item?.option_list && item?.option_list.map((itm, idx) => (
                                 <>
                                     <Font6 style={{ background: theme.color.background1, color: '#fff', borderRadius: '4px', padding: '2px', marginRight: '2px' }}>{itm?.name}</Font6>
@@ -134,7 +134,7 @@ export const Merchandise = (props) => {
                         ))}
                     </Font4>
                 </MerchandiseExplain>
-                <MerchandiseImg src={backUrl + item?.img_src} alt={item?.img_src_alt} is_premium={is_premium} />
+                <MerchandiseImg src={backUrl + item?.img_src} alt={item?.img_src_alt} />
             </motion.a>
         </>
     )
