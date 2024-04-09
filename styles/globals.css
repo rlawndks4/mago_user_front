@@ -15,35 +15,42 @@ body::-webkit-scrollbar-thumb {
   /* Chrome, Safari, Opera*/
   background: #eef1fd;
 }
+
 .none-scroll {
   -ms-overflow-style: none;
   /* IE and Edge */
   scrollbar-width: none;
   /* Firefox */
 }
+
 .none-scroll::-webkit-scrollbar {
   /* Chrome, Safari, Opera*/
   display: none;
 }
-.ql-editor{
+
+.ql-editor {
   -ms-overflow-style: none;
   /* IE and Edge */
   scrollbar-width: none;
   max-height: auto !important;
 }
-.ql-editor::-webkit-scrollbar{
+
+.ql-editor::-webkit-scrollbar {
   display: none;
 }
-.ql-editor{
+
+.ql-editor {
   padding: 16px !important;
 }
-.ql-editor > p > img{
+
+.ql-editor>p>img {
   width: 100% !important;
 }
 
-.ql-editor > p > span > img{
+.ql-editor>p>span>img {
   width: 100% !important;
 }
+
 .show-scrollbar ::-webkit-scrollbar {
   display: block !important;
 }
@@ -55,6 +62,7 @@ body::-webkit-scrollbar-thumb {
 .emoji {
   background: transparent;
 }
+
 .slick-dots {
   bottom: 16px !important;
 }
@@ -74,23 +82,28 @@ body::-webkit-scrollbar-thumb {
   right: 36px;
   display: none !important;
 }
-.scroll-table::-webkit-scrollbar{
+
+.scroll-table::-webkit-scrollbar {
   display: none;
 }
+
 .scroll-table::-webkit-scrollbar-thumb {
   /* Chrome, Safari, Opera*/
   background: #3250d255;
 }
-.scroll-table-green::-webkit-scrollbar{
+
+.scroll-table-green::-webkit-scrollbar {
   display: none;
-  
+
 }
+
 .scroll-table-green::-webkit-scrollbar-thumb {
   /* Chrome, Safari, Opera*/
   background: #3250d255;
   position: fixed;
   bottom: 0;
 }
+
 .scroll-css {}
 
 .scroll-css::-webkit-scrollbar {
@@ -104,17 +117,21 @@ body::-webkit-scrollbar-thumb {
 .scroll-css::-webkit-scrollbar-track {
   background-color: #ffffff;
 }
-#ALLAT_MOBILE_PAY{
+
+#ALLAT_MOBILE_PAY {
   height: 100vh !important;
 }
-.banner-img{
+
+.banner-img {
   width: 1150px;
   height: 575px;
 }
-.enrolment-banner-img{
+
+.enrolment-banner-img {
   width: 1000px;
   height: 250px;
 }
+
 .slick-prev.slick-disabled:before,
 .slick-next.slick-disabled:before {}
 
@@ -143,12 +160,15 @@ body::-webkit-scrollbar-thumb {
 .subtype-container::-webkit-scrollbar {
   display: none;
 }
-.viewer > div > div > div.ql-editor > p > a > img{
+
+.viewer>div>div>div.ql-editor>p>a>img {
   max-width: 1000px !important;
 }
-.viewer > div > div > div.ql-editor > p > img{
+
+.viewer>div>div>div.ql-editor>p>img {
   max-width: 1000px !important;
 }
+
 .comment-img {
   width: 64px;
   height: 64px;
@@ -183,9 +203,11 @@ div.note>p>img {
 .smaller-margin-right-content {
   margin: 0 1rem 0 auto;
 }
-.width-100{
+
+.width-100 {
   width: 100% !important;
 }
+
 .card-img {
   width: 100% !important;
   height: 320px;
@@ -195,61 +217,69 @@ div.note>p>img {
   background-position: center center;
   background-blend-mode: multiply;
 }
-.theme-img{
+
+.theme-img {
   width: 150px;
-  background:#fff;
+  background: #fff;
 }
-.video-img{
+
+.video-img {
   width: 90%;
-height:320px;
-background:#fff;
-background-size: cover;
-background-repeat: no-repeat;
-background-position: center center;
-background-blend-mode: multiply;
-margin: 18px auto;
+  height: 320px;
+  background: #fff;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-blend-mode: multiply;
+  margin: 18px auto;
 
 }
-#ALLAT_MOBILE_PAY{
+
+#ALLAT_MOBILE_PAY {
   position: fixed !important;
 }
-.slick-next{
-  display: none !important;
-}
-.slick-prev{
+
+.slick-next {
   display: none !important;
 }
 
-.master-dropdown-content{
+.slick-prev {
+  display: none !important;
+}
+
+.master-dropdown-content {
   position: fixed;
   display: flex;
-  top:6rem;
-  left:0;
-  width:100vw;
+  top: 6rem;
+  left: 0;
+  width: 100vw;
   background: #fff;
   box-shadow: 0px 12px 12px #00000029;
-  border-top:1px solid #ccc;
-  padding:1rem 0;
+  border-top: 1px solid #ccc;
+  padding: 1rem 0;
   animation: fadein 0.5s;
 }
-.service-dropdown-content{
+
+.service-dropdown-content {
   position: absolute;
   display: none;
-  top:6.12rem;
-  right:-75px;
+  top: 6.12rem;
+  right: -75px;
   background: #fff;
   color: #707070 !important;
   font-weight: normal;
   font-size: 15px;
   box-shadow: 0px 12px 12px #00000029;
-  border-top:1px solid #ccc;
+  border-top: 1px solid #ccc;
   animation: fadein 0.5s;
   width: 150px;
   z-index: 99;
 }
-.service-dropdown-content  div{
+
+.service-dropdown-content div {
   padding: 8px !important;
 }
+
 .prevArrow {
   position: absolute;
   top: 260px;
@@ -270,12 +300,13 @@ margin: 18px auto;
   z-index: 2;
   cursor: pointer;
   font-size: 28px;
-  padding:5px 5px 0px 5px;
+  padding: 5px 5px 0px 5px;
   border-radius: 50%;
   background: #aaaaaa55;
   color: #fff !important;
 
 }
+
 .merchandise-content {
   width: 20.83%;
   display: flex;
@@ -286,119 +317,154 @@ margin: 18px auto;
   border-radius: 10px;
   height: 300px;
 }
+
+.merchandise-content-premium {
+  width: 20.83%;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  position: relative;
+  box-shadow: 4px 12px 30px 6px rgba(0, 0, 0, 0.09);
+  border-radius: 10px;
+  height: 300px;
+}
+
 @media screen and (max-width:1350px) {
   .merchandise-content {
-      width: 30.15%;
-      height: 32.15vw;
-    }
+    width: 30.15%;
+    height: 32.15vw;
+  }
+
+  .merchandise-content-premium {
+    width: 30.15%;
+    height: 32.15vw;
+  }
 }
+
 @media screen and (max-width:1200px) {
-  .video-img{
-      height: 28.266666666vw;
+  .video-img {
+    height: 28.266666666vw;
   }
-  .viewer > div > div > div.ql-editor > p > a > img{
-      width: 100% !important;
+
+  .viewer>div>div>div.ql-editor>p>a>img {
+    width: 100% !important;
   }
-  .viewer > div > div > div.ql-editor > p > img{
-      width: 100% !important;
+
+  .viewer>div>div>div.ql-editor>p>img {
+    width: 100% !important;
   }
 }
 
 @media screen and (max-width:1100px) {
   .card-img {
-      height: 28.8vw;
+    height: 28.8vw;
   }
 }
+
 @media screen and (max-width:1000px) {
-  .theme-img{
-      width:15vw;
+  .theme-img {
+    width: 15vw;
 
   }
-  .enrolment-banner-img{
-      width: 100vw;
-      height: 25vw;
+
+  .enrolment-banner-img {
+    width: 100vw;
+    height: 25vw;
   }
 }
+
 @media screen and (max-width:1150px) {
-  .banner-img{
-      width: 100vw;
-      height: 50vw;
+  .banner-img {
+    width: 100vw;
+    height: 50vw;
   }
+
   .slick-dots {
-      bottom: 1vw !important;
+    bottom: 1vw !important;
   }
+
   .prevArrow {
-      top: 22vw;
+    top: 22vw;
   }
+
   .nextArrow {
-      top: 22vw;
+    top: 22vw;
   }
 }
 
 
 @media screen and (max-width:1000px) {
   #editor {
-      margin: 16px auto;
-      width: 90%;
+    margin: 16px auto;
+    width: 90%;
   }
-  
+
 }
+
 @media screen and (max-width:850px) {
-  
+
   .merchandise-content {
-      width: 47.5%;
-      height: 50.25vw;
-    }
+    width: 47.5%;
+    height: 50.25vw;
+  }
+
+  .merchandise-content-premium {
+    width: 100%;
+    height: 100.25vw;
+  }
 }
+
 @media screen and (max-width:700px) {
   .theme-img {
-      width: 30vw;
+    width: 30vw;
   }
- 
+
 }
+
 @media screen and (max-width:650px) {
   .merchandise-content {
-      width: 100%;
-      height: 30vw;
-      flex-direction: row-reverse;
-    }
- 
+    width: 100%;
+    height: 30vw;
+    flex-direction: row-reverse;
+  }
+
 }
+
 @media screen and (max-width:600px) {
-  .video-img{
-      height: 50vw;
-      margin: 5vw auto;
+  .video-img {
+    height: 50vw;
+    margin: 5vw auto;
   }
   .card-img {
-      height: 52.2222222222vw;
+    height: 52.2222222222vw;
   }
 
-  
+
 
   .progress-bar {
-      appearance: none;
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      left: 0;
-      right: 0;
+    appearance: none;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    right: 0;
 
   }
 
   .progress-bar::-webkit-progress-bar {
-      background: #f0f0f0;
-      border-radius: 0;
+    background: #f0f0f0;
+    border-radius: 0;
   }
 
   .progress-bar::-webkit-progress-value {
-      border-radius: 0;
-      background: #4CDAD8;
+    border-radius: 0;
+    background: #4CDAD8;
   }
 }
 
 @media screen and (max-width:600px) {
   .smaller-margin-right-content {
-      margin: 0 0.5rem 0 auto;
+    margin: 0 0.5rem 0 auto;
   }
 }
 

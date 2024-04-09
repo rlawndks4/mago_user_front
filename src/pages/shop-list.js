@@ -38,10 +38,10 @@ margin:0 auto;
 border-bottom-right-radius:10px;
 border-bottom-left-radius:10px;
 @media (max-width: 650px) {
-    width:30vw;
-    height:18vw;
-    border-radius:10px;
-    margin:auto auto auto 1rem;
+    ${props => props.is_premium ? '' : 'width:30vw;'}
+    ${props => props.is_premium ? '' : 'height:18vw;'}
+    ${props => props.is_premium ? '' : 'border-radius:10px;'}
+    ${props => props.is_premium ? '' : ' margin:auto auto auto 1rem;'}
 }
 `
 const MerchandiseExplain = styled.div`
@@ -54,10 +54,10 @@ flex-direction:column;
   font-size:${theme.size.font4};
 }
 @media (max-width: 650px) {
-    width:60vw;
-    height: 80%;
-    margin:auto auto auto 0.5rem;
-    padding:2vw;
+    ${props => props.is_premium ? '' : 'width:60vw;'}
+    ${props => props.is_premium ? '' : 'height: 80%;'}
+    ${props => props.is_premium ? '' : 'margin:auto auto auto 0.5rem;'}
+    ${props => props.is_premium ? '' : 'padding:2vw;'}
 }
 `
 const OptionContainer = styled.div`
@@ -74,7 +74,7 @@ const convertText = (text) => {
 }
 export const Merchandise = (props) => {
 
-    const { item, router } = props;
+    const { item, router, is_premium } = props;
     const [shop, setShop] = useState({});
     useEffect(() => {
         setShop(item)
@@ -91,9 +91,9 @@ export const Merchandise = (props) => {
                     textDecoration: 'none',
                     color: '#000'
                 }}
-                className='merchandise-content'
+                className={`merchandise-content${is_premium ? '-premium' : ''}`}
             >
-                <MerchandiseExplain>
+                <MerchandiseExplain is_premium={is_premium} >
                     <Font3 style={{ margin: '0 auto auto 0' }}>{item?.name}</Font3>
                     <Font5 style={{ display: 'flex', alignItems: 'center', margin: 'auto 0' }}>
                         <Icon icon='mdi:theme-outline' />
@@ -134,7 +134,7 @@ export const Merchandise = (props) => {
                         ))}
                     </Font4>
                 </MerchandiseExplain>
-                <MerchandiseImg src={backUrl + item?.img_src} alt={item?.img_src_alt} />
+                <MerchandiseImg src={backUrl + item?.img_src} alt={item?.img_src_alt} is_premium={is_premium} />
             </motion.a>
         </>
     )

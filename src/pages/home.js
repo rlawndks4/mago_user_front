@@ -14,6 +14,7 @@ const homeTaiImg = '/assets/images/banner/hometai.jpg'
 const koreanImg = '/assets/images/banner/korean.jpg'
 const shop1Img = '/assets/images/banner/1shop.jpg'
 const locationGoToImg = '/assets/images/test/loacation_go_to.png'
+const realTimeHotImg = '/assets/images/test/real_time_hot.png'
 const requestGif = '/assets/images/banner/request.gif'
 import { Row } from 'src/components/elements/ManagerTemplete';
 import theme from 'src/styles/theme';
@@ -199,13 +200,14 @@ const Home = () => {
                 </Mobile90PercentContainer>
             </WrappersStyle>
             <Wrappers className='wrappers' style={{ marginTop: '0.5rem' }}>
-                <img src={locationGoToImg} style={{ width: '90%', margin: '0 auto', maxWidth: '700px' }} />
+                <img src={realTimeHotImg} style={{ width: '90%', margin: '0 auto', maxWidth: '700px' }} />
                 <MerchandiseContainer>
                     {shopList && shopList.filter(el => el?.is_premium == 1).map((item, idx) => (
                         <>
                             <Merchandise
                                 router={router}
                                 item={item}
+                                is_premium={true}
                             />
                         </>
                     ))}
