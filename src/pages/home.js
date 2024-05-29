@@ -11,7 +11,7 @@ const playStoreSrc = 'assets/images/test/google-play.jpg'
 import { Merchandise } from './shop-list';
 import { MdNavigateBefore, MdNavigateNext } from 'react-icons/md';
 const homeTaiImg = '/assets/images/banner/hometai.jpg'
-const koreanImg = '/assets/images/banner/korean.jpg'
+const koreanImg = '/assets/images/banner/출장마사지.jpg'
 const shop1Img = '/assets/images/banner/1shop.jpg'
 const locationGoToImg = '/assets/images/test/loacation_go_to.png'
 const realTimeHotImg = '/assets/images/test/real_time_hot.png'
@@ -174,7 +174,7 @@ const Home = () => {
                     <Row style={{ flexDirection: 'column', width: '48.5%' }}>
                         <HalfImg src={koreanImg} onClick={() => router.push('/shop-list?is_around=1&theme=6')} />
                         <a style={{ margin: '0 auto', textDecoration: 'none', color: '#000' }} href={`/shop-list?is_around=1&theme=6`}>
-                            <h2>한국인출장</h2>
+                            <h2>출장마사지</h2>
                         </a>
                     </Row>
                     <Row style={{ flexDirection: 'column', width: '48.5%' }}>
