@@ -172,7 +172,7 @@ const Home = () => {
                 <h1 style={{ margin: '1rem auto', fontSize: theme.size.font2 }}>{setting?.main_home_title}</h1>
                 <Mobile90PercentContainer style={{ marginTop: '1rem' }}>
                     <Row style={{ flexDirection: 'column', width: '48.5%' }}>
-                        <HalfImg src={koreanImg} onClick={() => router.push('/shop-list?is_around=1&theme=6')} />
+                        <HalfImg src={koreanImg} onClick={() => router.push('/shop-list?is_around=1&theme=4')} />
                         <a style={{ margin: '0 auto', textDecoration: 'none', color: '#000' }} href={`/shop-list?is_around=1&theme=4`}>
                             <h2>출장마사지</h2>
                         </a>
